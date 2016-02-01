@@ -1,0 +1,564 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>Film Planetarium</title>
+
+</head>
+<body>
+<h1>Film Planetarium</h1>
+
+<p><strong>Interactive Information Visualization 2015-2016</strong><br/>
+Université Paris-Sud</p>
+
+<p><img src="images/cover.png" alt="movie planetarium" /></p>
+
+<h2>Authors</h2>
+
+<p>Nam Giang<br/>
+Francesco Vitale</p>
+
+<h2>How to run the project</h2>
+
+<ul>
+<li>Check that the Processing library <a href="http://www.sojamo.de/libraries/controlP5/">controlP5</a> is installed.</li>
+<li>Open the folder <code>movieviz</code>, the open the file <code>movieviz.pde</code> with Processing.</li>
+<li>Click Run.</li>
+</ul>
+
+
+<h2>Table of contents</h2>
+
+<ul>
+<li>Introduction</li>
+<li>Dataset description</li>
+<li>Data encoding</li>
+<li>Interaction</li>
+<li>Findings</li>
+<li>Limitations</li>
+<li>Future work</li>
+<li>Credits</li>
+<li>Appendix</li>
+</ul>
+
+
+<h2>Introduction</h2>
+
+<p>The visualisation shows a list of <strong>influential movie directors</strong> and the <strong>actors</strong> they most frequently worked with. We took inspiration from <a href="http://www.nytimes.com/newsgraphics/2013/09/07/director-star-chart/">Constellations of Directors and Their Stars</a>, an online visualisation from 2013. We added more dimensions, interactivity, and took a different design approach.</p>
+
+<p>We visualised the relationship between a director and his top collaborators as a <strong>solar system</strong>: the director is the sun and the collaborators are the planets. The dimension of time, makes it possible to see how the collaborators rotate around the director: they mover farther away or closer, as the years go by.</p>
+
+<p>Our main research question was: <strong>how does the collaboration between a director and a group of actors evolve over time?</strong></p>
+
+<p>We also wanted to see what role <strong>gender</strong> plays in the dynamic.</p>
+
+<h2>Dataset description</h2>
+
+<p>We used a custom dataset. It contains a list of movies from a list of influential movie directors who started working between 1950 and 1980 (the complete list is at the end of this file).</p>
+
+<p>We compiled the dataset using <a href="http://www.omdbapi.com/">OMDb API</a>, a free service built on top of <a href="http://www.imdb.com/">IMDb</a>.</p>
+
+<p>Each movie has multiple dimensions (e.g., title, year, directors, actors, etc.) A list of all the dimensions is at the end of this file.</p>
+
+<p>We created two additional datasets:</p>
+
+<ul>
+<li><code>directors.csv</code> contains the list of directors and the year they were born in.</li>
+<li><code>actors.csv</code> contains the top collaborators for each director and their gender.</li>
+</ul>
+
+
+<p>We created the second dataset only at the end of the development: we used the application to output the list of actors. Then, we added the gender of each actor manually.</p>
+
+<h2>Data encoding</h2>
+
+<p>As explained in the introduction, we used the solar system as a metaphor to display our data.</p>
+
+<p>The visualisation consists of two main views: an overview with all directors and a detailed view for each director. We applied the <strong>Visual Information Seeking Mantra</strong> by Shneiderman (“Overview first, zoom and filter, then details on demand”) to structure our design and interaction.</p>
+
+<h3>Overview</h3>
+
+<p>In the overview you see all directors with a condensed visualisation of their collaborators. We used Edward Tufte’s concept of <strong>small multiples</strong> to create a grid that gives a first impression of the data.</p>
+
+<h3>Director’s view</h3>
+
+<p>In the detailed director’s view you see more information on his collaborators. We only show actors who have worked with the director in <strong>at least three movies</strong>. The number of movies they have starred in determines the distance from the director: the closer they are to the director, the more movies they have starred in.</p>
+
+<h3>Colors</h3>
+
+<p>We used two colors (pink and blue) to show respectively female and male actors. These colors, while stereotypical, have an immediate cultural meaning that is almost universal.</p>
+
+<h2>Interaction</h2>
+
+<h3>Zoom on the director</h3>
+
+<p>In the overview, you can <strong>click</strong> on a director and zoom in on his career. You’ll see more details.</p>
+
+<p><img src="images/click-director.png" alt="click on the director" /></p>
+
+<p>Then, you can use a dropdown list in the top right of the visualisation to navigate:</p>
+
+<p><img src="images/dropdown.png" alt="dropdown list" /></p>
+
+<ul>
+<li>Choose "Show all" to go back to the overview.</li>
+<li>Choose another director and you’ll go to a different detailed view.</li>
+</ul>
+
+
+<h3>Filter by year</h3>
+
+<p>In any view, the slider in the top of the visualisation makes it possible to filter the content by year:</p>
+
+<ul>
+<li>You can filter one year at a time or use a custom range. The slider is mouse-activated.</li>
+<li>By default it shows a range of 10 years. You can <strong>drag</strong> the range to the left or to the right and move between decades:</li>
+</ul>
+
+
+<p><img src="images/drag-range.png" alt="drag the slider" /></p>
+
+<ul>
+<li>You can expand or shrink the range by using two handles, on the left and the right of the range. You can <strong>click</strong> on the handle and <strong>drag</strong> it to the left or to the right. The range will change accordingly:</li>
+</ul>
+
+
+<p><img src="images/drag-range-handle.png" alt="drag the slider" /></p>
+
+<h3>Get details on the actor</h3>
+
+<p>In the detailed view of any director, you can <strong>hover</strong> or <strong>click</strong> on the actors, represented as planets (i.e., filled circles).</p>
+
+<p><img src="images/hover-click-actor.png" alt="drag the slider" /></p>
+
+<ul>
+<li>By hovering on an actor, you can see how many movies they have starred in.</li>
+<li>By clicking on an actor, you can see the movies they have starred in: their posters will highlight in the list of movies on the right.</li>
+</ul>
+
+
+<h3>Get details on the movie</h3>
+
+<p>You can <strong>hover</strong> on the movie poster to see the title and the year.</p>
+
+<p><img src="images/hover-movie.png" alt="drag the slider" /></p>
+
+<h2>Findings</h2>
+
+<ul>
+<li>Some directors are their own most frequent collaborator. For example, Woody Allen and Jean-Luc Godard have cast themselves in many movies.</li>
+<li>Some directors have close collaborations mostly with male actors (e.g., Mel Brooks, Pier Paolo Pasolini, Martin Scorsese), while others with female actors (e.g., Woody Allen, Jean-Luc Godard, David Lynch).</li>
+<li>There doesn’t seem to be a direct correlation between the ratio of male/female actors and the total number of collaborators.</li>
+</ul>
+
+
+<h2>Limitations</h2>
+
+<ul>
+<li>Our list of directors is arbitrary and not diverse, because there are no women: this is not intentional, but it reflects the nature of the movie industry. It was difficult to find an influential woman director who started working between 1950 and 1980. However, this prompted us to explore the influence of gender in the relationship between directors and their collaborators.</li>
+<li>In the dataset, each movie has <strong>only four actors</strong>: they are the first four actors listed on IMDB by credits order. In most cases, they are the main actors from the movie, but in some cases this is not true. Therefore, the number and order of the actors as listed on IMDb influences what is visible in the visualisation. Each director might be missing some collaborators. Unfortunately, this is a limitation of the OMDb API.</li>
+<li>Some movies don’t have a poster.</li>
+<li>In the visualisation we excluded two directors from the dataset (Bernardo Bertolucci, George Romero), because they don’t show any close collaborators. Stanley Kubrick also doesn’t have any close collaborators, but we decided to keep him to show what happens when that’s case.</li>
+<li>Using the controlP5 library limited our control over the design and interaction of two components, the year slider and the dropdown list with all directors. For example, we were not able to customise the font to make it consistent with the rest of the visualisation.</li>
+</ul>
+
+
+<h2>Future work</h2>
+
+<ul>
+<li>Further explore the relationship between gender and movies: expand the list of directors to include influential women directors from later decades.</li>
+<li>Shift the list of directors to another generation: for example, directors who started working after 1990.</li>
+<li>Expand the visualisation to include more dimensions (e.g., critic and user ratings for the movies, box office data, genres, or semantic data extracted from the plot descriptions) and explore relationships between them.</li>
+<li>Improve the interaction.</li>
+</ul>
+
+
+<h2>Credits</h2>
+
+<ul>
+<li>We used <a href="http://www.sojamo.de/libraries/controlP5/">controlP5</a> to create the year slider and the dropdown list.</li>
+<li>We used examples from the Processing <a href="https://processing.org/reference/">reference</a> and <a href="https://forum.processing.org">forums</a>. In particular, we adapted <a href="https://forum.processing.org/one/topic/distribute-shapes-around-circle-dependant-on-arc-length#25080000001373377.html">an example</a> to arrange the actor planets on a circular pattern.</li>
+<li>We referred to the course assignments to read the dataset and build part of the interaction on mouse hover and click.</li>
+<li>The movie posters come from IMDb. The grid layout of the movies was inspired by the website <a href="http://letterboxd.com/">Letterboxd</a>.</li>
+<li>The pictures of the directors come from multiple sources and fall under fair use. No copyright infringement is intended.</li>
+<li>We used <a href="http://colorbrewer2.org/">ColorBrewer</a> to choose the colors.</li>
+<li>The font used is <a href="https://github.com/adobe-fonts/source-sans-pro">Source Sans Pro</a>, an open-source font by Adobe.</li>
+</ul>
+
+
+<h2>Appendix</h2>
+
+<h3>List of directors</h3>
+
+<p>Ordered by the year they were born in, as displayed in the overview:</p>
+
+<ul>
+<li>Michelangelo Antonioni</li>
+<li>Federico Fellini</li>
+<li>Pier Paolo Pasolini</li>
+<li>Mel Brooks</li>
+<li>Stanley Kubrick</li>
+<li>Sergio Leone</li>
+<li>Jean-Luc Godard</li>
+<li>François Truffaut</li>
+<li>Roman Polanski</li>
+<li>Woody Allen</li>
+<li>Francis Ford Coppola</li>
+<li>George Romero (<em>not shown in the visualisation</em>)</li>
+<li>Brian De Palma</li>
+<li>Bernardo Bertolucci (<em>not shown in the visualisation</em>)</li>
+<li>Martin Scorsese</li>
+<li>George Lucas</li>
+<li>David Lynch</li>
+<li>Steven Spielberg</li>
+<li>John Carpenter</li>
+<li>James Cameron</li>
+</ul>
+
+
+<h3>List of data dimensions</h3>
+
+<p>For each movie in the dataset (in bold the ones we used):</p>
+
+<ul>
+<li><strong>Title</strong></li>
+<li><strong>Year</strong></li>
+<li>Rated</li>
+<li>Released</li>
+<li>Runtime</li>
+<li>Genre</li>
+<li><strong>Director</strong></li>
+<li>Writer</li>
+<li><strong>Actors</strong></li>
+<li>Plot</li>
+<li>Language</li>
+<li>Country</li>
+<li>Awards</li>
+<li><strong>Poster</strong></li>
+<li>Metascore</li>
+<li>imdbRating</li>
+<li>imdbVotes</li>
+<li>imdbID</li>
+<li>Type</li>
+<li>tomatoMeter</li>
+<li>tomatoImage</li>
+<li>tomatoRating</li>
+<li>tomatoReviews</li>
+<li>tomatoFresh</li>
+<li>tomatoRotten</li>
+<li>tomatoConsensus</li>
+<li>tomatoUserMeter</li>
+<li>tomatoUserRating</li>
+<li>tomatoUserReviews</li>
+<li>DVD</li>
+<li>BoxOffice</li>
+<li>Production</li>
+<li>Website</li>
+</ul>
+
+
+<h3>Entry example</h3>
+
+<blockquote><p>"What's Up, Tiger Lily?","1966","PG","02 Nov 1966","80 min","Adventure, Comedy, Crime","Woody Allen, Senkichi Taniguchi","Woody Allen, Julie Bennett, Frank Buxton, Louise Lasser, Len Maxwell, Mickey Rose, Ben Shapiro (production conception), Bryna Wilson","The Lovin' Spoonful, Frank Buxton, Len Maxwell, Louise Lasser","In comic Woody Allen's film debut, he took the Japanese action film ""International Secret Police: Key of Keys"" and re-dubbed it, changing the plot to make it revolve around a secret egg salad recipe.","English, Japanese","USA, Japan","N/A","http://ia.media-imdb.com/images/M/MV5BMjAzNTQ2MTczMF5BMl5BanBnXkFtZTYwMTcyMjg5._V1_SX300.jpg","N/A","6.1","7,412","tt0061177","movie","83","fresh","6.9","24","20","4","N/A","53","3.2","7997","15 Jul 2003","N/A","American International Pictures","N/A"</p></blockquote>
+</body>
+</html>
